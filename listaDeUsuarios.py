@@ -55,10 +55,23 @@ def escolha1(listaPrincipal):
     voltarMenu(listaPrincipal)
 
 def escolha2(listaPrincipal):
-    pass:
+    print('''
+    Você escolheu a opção de exibir todos os usuários cadastrados, listando-os por ordem de cadastro.
+    Atualmente, temos cadastrados esses usuários:
+    ''')
+    for nomes in listaPrincipal[::2]:
+        print(nomes)
+    voltarMenu(listaPrincipal)
 
 def escolha3(listaPrincipal):
-    pass:
+    print('''
+    Você escolheu a opção de exibir todos os usuários cadastrados, listando-os por ordem alfabética.
+    Atualmente, temos cadastrados esses usuários:
+    ''')
+    listaNomesAlfabetico = sorted(listaPrincipal[::2])
+    for nomes in listaNomesAlfabetico:
+        print(nomes)
+    voltarMenu(listaPrincipal)
 
 def escolha4(listaPrincipal):
     pass:
