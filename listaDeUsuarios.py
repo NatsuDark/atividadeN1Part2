@@ -17,7 +17,57 @@ def menuEscolhas(listaPrincipal):
         print("\033[1;31mEscolha inválida, insira uma escolha válida.\033[0;0m")
         menuEscolhas (listaPrincipal)
 
+def leitorEscolha(escolha, listaPrincipal):
+    print("\n\n","-"*25,"\n\n")
+    if escolha == 1:
+        escolha1(listaPrincipal)
+    elif escolha == 2:
+        escolha2(listaPrincipal)
+    elif escolha == 3:
+        escolha3(listaPrincipal)
+    elif escolha == 4:
+        escolha4(listaPrincipal)
+    elif escolha == 5:
+        escolha5(listaPrincipal)
+    elif escolha == 6:
+        escolha6(listaPrincipal)
+    elif escolha == 7:
+        quit()
 
+def escolha1(listaPrincipal):
+    print("Você escolheu a opção de cadastrar novos usuários pelo seu nome completo e e-mail.")
+    nome = input("Por favor, insira o nome completo do usuário que deseja adicionar:\n")
+    while (True):
+        email = input("Insira o seu email:\n")
+        if email.find("@") == -1:
+            print("\033[1;31mDigite um e-mail valido!!\033[0;0m")
+        else:
+            break
+    nome = nome.title()
+    
+    print("O nome \"%s\" e o e-mail \"%s\" serão adicionados ao sistema.\n" %(nome,email))
+    if confirmarEscolha():
+        listaPrincipal.append(nome)
+        listaPrincipal.append(email)
+        print("O nome \"%s\" e o e-mail \"%s\" foram adicionados ao sistema.\n" %(nome,email))
+    else:
+        print("\033[1;31mAÇÃO CANCELADA.\033[0;0m")
+    voltarMenu(listaPrincipal)
+
+def escolha2(listaPrincipal):
+    pass:
+
+def escolha3(listaPrincipal):
+    pass:
+
+def escolha4(listaPrincipal):
+    pass:
+
+def escolha5(listaPrincipal):
+    pass:
+
+def escolha6(listaPrincipal):
+    pass:
 
 def main():
     listaPrincipal = []
