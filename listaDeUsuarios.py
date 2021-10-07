@@ -74,13 +74,48 @@ def escolha3(listaPrincipal):
     voltarMenu(listaPrincipal)
 
 def escolha4(listaPrincipal):
-    pass:
+    print("Você escolheu a opção de verificar se um usuário faz parte da lista de participantes, buscando-o pelo seu nome.")
+    nomeProcurado = input("insira o nome completo que deseja verificar:\n")
+    nomeProcurado = nomeProcurado.title()
+    if nomeProcurado in listaPrincipal:
+        print("\033[1;92mO usuário procurado está na lista!\033[0;0m")
+    else:
+        print("\033[1;31mO usuário procurado não está na lista!\033[0;0m")
+    voltarMenu(listaPrincipal)
 
 def escolha5(listaPrincipal):
-    pass:
+    print("Você escolheu a opção de remover um usuário cadastrado, buscando-o por seu email.")
+    removerEmail = input("Digite o e-mail do usuário que deseja remover:\n")
+    if removerEmail in listaPrincipal:
+        contador = listaPrincipal.index(removerEmail)
+        
+        print("O nome \"%s\" e o e-mail \"%s\" serão removidos do sistema.\n" %(listaPrincipal[contador-1], listaPrincipal[contador]))
+        if confirmarEscolha():
+            print("O nome %s e o email %s foram removidos da lista." %(listaPrincipal.pop(contador-1),listaPrincipal.pop(contador-1)))
+        else:
+            print("\033[1;31mAÇÃO CANCELADA.\033[0;0m")
+    else:
+        print("\033[1;31mEsse e-mail não está no sistema!\033[0;0m")
+    voltarMenu(listaPrincipal)
 
 def escolha6(listaPrincipal):
-    pass:
+    print("Você escolheu a opção de alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.")
+    localizarEmail = input("Digite o e-mail do usuário que deseja alterar:\n")
+    if localizarEmail in listaPrincipal:
+        contador = listaPrincipal.index(localizarEmail)
+        print("Encontramos o nome \"%s\" registrado com o e-mail dado." %listaPrincipal[contador-1])
+        alterarNome = input("Insira o nome alterado do usuário:\n")
+        alterarNome = alterarNome.title()
+
+        print("O nome \"%s\" será alterado para \"%s\".\n"  %(listaPrincipal[contador-1],alterarNome))
+        if confirmarEscolha():
+            print("\033[1;92mO nome \"%s \"foi alterado para \"%s\".\033[0;0m" %(listaPrincipal[contador-1],alterarNome))
+            listaPrincipal[contador-1] = alterarNome
+        else:
+            print("\033[1;31mAÇÃO CANCELADA.\033[0;0m")
+    else:
+        print("\033[1;31mEsse e-mail não está no sistema!\033[0;0m")
+    voltarMenu(listaPrincipal)
 
 def main():
     listaPrincipal = []
